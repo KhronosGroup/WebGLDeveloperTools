@@ -621,7 +621,7 @@ function makeLostContextSimulatingCanvas(canvas) {
   function clearErrors() {
     var k = Object.keys(glErrorShadow_);
     for (var ii = 0; ii < k.length; ++ii) {
-      delete glErrorShadow_[k];
+      delete glErrorShadow_[k[ii]];
     }
   }
 
