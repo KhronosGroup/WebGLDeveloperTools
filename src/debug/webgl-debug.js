@@ -375,6 +375,9 @@ function makeDebugContext(ctx, opt_onErrorFunc, opt_onFunc, opt_err_ctx) {
         var wrapped = makeErrorWrapper(ctx, propertyName);
         wrapper[propertyName] = function () {
           var result = wrapped.apply(ctx, arguments);
+          if (!result) {
+            return null;
+          }
           return makeDebugContext(result, opt_onErrorFunc, opt_onFunc, opt_err_ctx);
         };
       }
