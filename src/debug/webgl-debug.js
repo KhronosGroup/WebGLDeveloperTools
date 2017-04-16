@@ -92,31 +92,31 @@ var glValidEnumContexts = {
   'getTexParameter': {2: { 0:true, 1:true }},
   'texParameterf': {3: { 0:true, 1:true }},
   'texParameteri': {3: { 0:true, 1:true, 2:true }},
-  'texImage2D': {
-     9: { 0:true, 2:true, 6:true, 7:true },
-     6: { 0:true, 2:true, 3:true, 4:true }
-  },
-  'texSubImage2D': {
-    9: { 0:true, 6:true, 7:true },
-    7: { 0:true, 4:true, 5:true }
-  },
+  //'texImage2D': {
+  //   9: { 0:true, 2:true, 6:true, 7:true },
+  //   6: { 0:true, 2:true, 3:true, 4:true }
+  //},
+  //'texSubImage2D': {
+  //  9: { 0:true, 6:true, 7:true },
+  //  7: { 0:true, 4:true, 5:true }
+  //},
   'copyTexImage2D': {8: { 0:true, 2:true }},
   'copyTexSubImage2D': {8: { 0:true }},
   'generateMipmap': {1: { 0:true }},
-  'compressedTexImage2D': {7: { 0: true, 2:true }},
-  'compressedTexSubImage2D': {8: { 0: true, 6:true }},
+  //'compressedTexImage2D': {7: { 0: true, 2:true }},
+  //'compressedTexSubImage2D': {8: { 0: true, 6:true }},
 
   // Buffer objects
 
   'bindBuffer': {2: { 0:true }},
-  'bufferData': {3: { 0:true, 2:true }},
-  'bufferSubData': {3: { 0:true }},
+  //'bufferData': {3: { 0:true, 2:true }},
+  //'bufferSubData': {3: { 0:true }},
   'getBufferParameter': {2: { 0:true, 1:true }},
 
   // Renderbuffers and framebuffers
 
   'pixelStorei': {2: { 0:true, 1:true }},
-  'readPixels': {7: { 4:true, 5:true }},
+  //'readPixels': {7: { 4:true, 5:true }},
   'bindRenderbuffer': {2: { 0:true }},
   'bindFramebuffer': {2: { 0:true }},
   'checkFramebufferStatus': {1: { 0:true }},
@@ -152,7 +152,126 @@ var glValidEnumContexts = {
 
   // EXT_blend_minmax extension
 
-  'blendEquationEXT': {1: { 0:true }}
+  'blendEquationEXT': {1: { 0:true }},
+
+  // WebGL 2 Buffer objects
+
+  'bufferData': {3: { 0:true, 2:true }, 4: { 0:true, 2:true }, 5: { 0:true, 2:true }},
+  'bufferSubData': {3: { 0:true }, 4: { 0:true }, 5: { 0:true }},
+  'copyBufferSubData': {5: { 0:true, 1:true }},
+  'getBufferSubData': {3: { 0:true }, 4: { 0:true }, 5: { 0:true }},
+
+  // WebGL 2 Framebuffer objects
+
+  'blitFramebuffer': {10: { 8: { 'enumBitwiseOr': ['COLOR_BUFFER_BIT', 'DEPTH_BUFFER_BIT', 'STENCIL_BUFFER_BIT'] }, 9:true }},
+  'framebufferTextureLayer': {5: { 0:true, 1:true }},
+  'invalidateFramebuffer': {2: { 0:true }},
+  'invalidateSubFramebuffer': {6: { 0:true }},
+  'readBuffer': {1: { 0:true }},
+
+  // WebGL 2 Renderbuffer objects
+
+  'getInternalformatParameter': {3: { 0:true, 1:true, 2:true }},
+  'renderbufferStorageMultisample': {5: { 0:true, 2:true }},
+
+  // WebGL 2 Texture objects
+
+  'texStorage2D': {5: { 0:true, 2:true }},
+  'texStorage3D': {6: { 0:true, 2:true }},
+  'texImage2D': {
+    9: { 0:true, 2:true, 6:true, 7:true },
+    6: { 0:true, 2:true, 3:true, 4:true },
+    10: { 0:true, 2:true, 6:true, 7:true }
+  },
+  'texImage3D': {
+    10: { 0:true, 2:true, 7:true, 8:true },
+    11: { 0:true, 2:true, 7:true, 8:true }
+  },
+  'texSubImage2D': {
+    9: { 0:true, 6:true, 7:true },
+    7: { 0:true, 4:true, 5:true },
+    10: { 0:true, 6:true, 7:true }
+  },
+  'texSubImage3D': {
+    11: { 0:true, 8:true, 9:true },
+    12: { 0:true, 8:true, 9:true }
+  },
+  'copyTexSubImage3D': {9: { 0:true }},
+  'compressedTexImage2D': {
+    7: { 0: true, 2:true },
+    8: { 0: true, 2:true },
+    9: { 0: true, 2:true }
+  },
+  'compressedTexImage3D': {
+    8: { 0: true, 2:true },
+    9: { 0: true, 2:true },
+    10: { 0: true, 2:true }
+  },
+  'compressedTexSubImage2D': {
+    8: { 0: true, 6:true },
+    9: { 0: true, 6:true },
+    10: { 0: true, 6:true }
+  },
+  'compressedTexSubImage3D': {
+    10: { 0: true, 8:true },
+    11: { 0: true, 8:true },
+    12: { 0: true, 8:true }
+  },
+
+  // WebGL 2 Vertex attribs
+
+  'vertexAttribIPointer': {5: { 2:true }},
+
+  // WebGL 2 Writing to the drawing buffer
+
+  'drawArraysInstanced': {4: { 0:true }},
+  'drawElementsInstanced': {5: { 0:true, 2:true }},
+  'drawRangeElements': {6: { 0:true, 4:true }},
+
+  // WebGL 2 Reading back pixels
+
+  'readPixels': {7: { 4:true, 5:true }, 8: { 4:true, 5:true }},
+
+  // WebGL 2 Multiple Render Targets
+
+  'clearBufferfv': {3: { 0:true }, 4: { 0:true }},
+  'clearBufferiv': {3: { 0:true }, 4: { 0:true }},
+  'clearBufferuiv': {3: { 0:true }, 4: { 0:true }},
+  'clearBufferfi': {4: { 0:true }},
+
+  // WebGL 2 Query objects
+
+  'beginQuery': {2: { 0:true }},
+  'endQuery': {1: { 0:true }},
+  'getQuery': {2: { 0:true, 1:true }},
+  'getQueryParameter': {2: { 1:true }},
+
+  // WebGL 2 Sampler objects
+
+  'samplerParameteri': {3: { 1:true, 2:true }},
+  'samplerParameterf': {3: { 1:true }},
+  'getSamplerParameter': {2: { 1:true }},
+
+  // WebGL 2 Sync objects
+
+  'fenceSync': {2: { 0:true, 1: { 'enumBitwiseOr': [] } }},
+  'clientWaitSync': {3: { 1: { 'enumBitwiseOr': ['SYNC_FLUSH_COMMANDS_BIT'] } }},
+  'waitSync': {3: { 1: { 'enumBitwiseOr': [] } }},
+  'getSyncParameter': {2: { 1:true }},
+
+  // WebGL 2 Transform Feedback
+
+  'bindTransformFeedback': {2: { 0:true }},
+  'beginTransformFeedback': {1: { 0:true }},
+  'transformFeedbackVaryings': {3: { 2:true }},
+
+  // WebGL2 Uniform Buffer Objects and Transform Feedback Buffers
+
+  'bindBufferBase': {3: { 0:true }},
+  'bindBufferRange': {5: { 0:true }},
+  'getIndexedParameter': {2: { 0:true }},
+  'getActiveUniforms': {3: { 2:true }},
+  'getActiveUniformBlockParameter': {3: { 2:true }}
 };
 
 /**
@@ -403,6 +522,12 @@ function makeDebugContext(ctx, opt_onErrorFunc, opt_onFunc, opt_err_ctx) {
 }
 
 function resetToInitialState(ctx) {
+  var isWebGL2RenderingContext = !!ctx.createTransformFeedback;
+
+  if (isWebGL2RenderingContext) {
+    ctx.bindVertexArray(null);
+  }
+
   var numAttribs = ctx.getParameter(ctx.MAX_VERTEX_ATTRIBS);
   var tmp = ctx.createBuffer();
   ctx.bindBuffer(ctx.ARRAY_BUFFER, tmp);
@@ -410,6 +535,9 @@ function resetToInitialState(ctx) {
     ctx.disableVertexAttribArray(ii);
     ctx.vertexAttribPointer(ii, 4, ctx.FLOAT, false, 0, 0);
     ctx.vertexAttrib1f(ii, 0);
+    if (isWebGL2RenderingContext) {
+      ctx.vertexAttribDivisor(ii, 0);
+    }
   }
   ctx.deleteBuffer(tmp);
 
@@ -418,6 +546,11 @@ function resetToInitialState(ctx) {
     ctx.activeTexture(ctx.TEXTURE0 + ii);
     ctx.bindTexture(ctx.TEXTURE_CUBE_MAP, null);
     ctx.bindTexture(ctx.TEXTURE_2D, null);
+    if (isWebGL2RenderingContext) {
+      ctx.bindTexture(ctx.TEXTURE_2D_ARRAY, null);
+      ctx.bindTexture(ctx.TEXTURE_3D, null);
+      ctx.bindSampler(ii, null);
+    }
   }
 
   ctx.activeTexture(ctx.TEXTURE0);
@@ -462,6 +595,33 @@ function resetToInitialState(ctx) {
   ctx.viewport(0, 0, ctx.canvas.width, ctx.canvas.height);
   ctx.clear(ctx.COLOR_BUFFER_BIT | ctx.DEPTH_BUFFER_BIT | ctx.STENCIL_BUFFER_BIT);
 
+  if (isWebGL2RenderingContext) {
+    ctx.drawBuffers([ctx.BACK]);
+    ctx.readBuffer(ctx.BACK);
+    ctx.bindBuffer(ctx.COPY_READ_BUFFER, null);
+    ctx.bindBuffer(ctx.COPY_WRITE_BUFFER, null);
+    ctx.bindBuffer(ctx.PIXEL_PACK_BUFFER, null);
+    ctx.bindBuffer(ctx.PIXEL_UNPACK_BUFFER, null);
+    var numTransformFeedbacks = ctx.getParameter(ctx.MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS);
+    for (var ii = 0; ii < numTransformFeedbacks; ++ii) {
+      ctx.bindBufferBase(ctx.TRANSFORM_FEEDBACK_BUFFER, ii, null);
+    }
+    var numUBOs = ctx.getParameter(ctx.MAX_UNIFORM_BUFFER_BINDINGS);
+    for (var ii = 0; ii < numUBOs; ++ii) {
+      ctx.bindBufferBase(ctx.UNIFORM_BUFFER, ii, null);
+    }
+    ctx.disable(ctx.RASTERIZER_DISCARD);
+    ctx.pixelStorei(ctx.UNPACK_IMAGE_HEIGHT, 0);
+    ctx.pixelStorei(ctx.UNPACK_SKIP_IMAGES, 0);
+    ctx.pixelStorei(ctx.UNPACK_ROW_LENGTH, 0);
+    ctx.pixelStorei(ctx.UNPACK_SKIP_ROWS, 0);
+    ctx.pixelStorei(ctx.UNPACK_SKIP_PIXELS, 0);
+    ctx.pixelStorei(ctx.PACK_ROW_LENGTH, 0);
+    ctx.pixelStorei(ctx.PACK_SKIP_ROWS, 0);
+    ctx.pixelStorei(ctx.PACK_SKIP_PIXELS, 0);
+    ctx.hint(ctx.FRAGMENT_SHADER_DERIVATIVE_HINT, ctx.DONT_CARE);
+  }
+
   // TODO: This should NOT be needed but Firefox fails with 'hint'
   while(ctx.getError());
 }
@@ -480,6 +640,7 @@ function makeLostContextSimulatingCanvas(canvas) {
   var numCalls_ = 0;
   var canRestore_ = false;
   var restoreTimeout_ = 0;
+  var isWebGL2RenderingContext;
 
   // Holds booleans for each GL error so can simulate errors.
   var glErrorShadow_ = { };
@@ -488,11 +649,12 @@ function makeLostContextSimulatingCanvas(canvas) {
     return function() {
       var ctx = f.apply(canvas, arguments);
       // Did we get a context and is it a WebGL context?
-      if (ctx instanceof WebGLRenderingContext) {
+      if ((ctx instanceof WebGLRenderingContext) || (window.WebGL2RenderingContext && (ctx instanceof WebGL2RenderingContext))) {
         if (ctx != unwrappedContext_) {
           if (unwrappedContext_) {
             throw "got different context"
           }
+          isWebGL2RenderingContext = window.WebGL2RenderingContext && (ctx instanceof WebGL2RenderingContext);
           unwrappedContext_ = ctx;
           wrappedContext_ = makeLostContextSimulatingContext(unwrappedContext_);
         }
@@ -671,6 +833,19 @@ function makeLostContextSimulatingCanvas(canvas) {
       } else if (resource instanceof WebGLTexture) {
         unwrappedContext_.deleteTexture(resource);
       }
+      else if (isWebGL2RenderingContext) {
+        if (resource instanceof WebGLQuery) {
+          unwrappedContext_.deleteQuery(resource);
+        } else if (resource instanceof WebGLSampler) {
+          unwrappedContext_.deleteSampler(resource);
+        } else if (resource instanceof WebGLSync) {
+          unwrappedContext_.deleteSync(resource);
+        } else if (resource instanceof WebGLTransformFeedback) {
+          unwrappedContext_.deleteTransformFeedback(resource);
+        } else if (resource instanceof WebGLVertexArrayObject) {
+          unwrappedContext_.deleteVertexArray(resource);
+        }
+      }
     }
   }
 
@@ -722,6 +897,15 @@ function makeLostContextSimulatingCanvas(canvas) {
       "createShader",
       "createTexture"
     ];
+    if (isWebGL2RenderingContext) {
+      creationFunctions.push(
+        "createQuery",
+        "createSampler",
+        "fenceSync",
+        "createTransformFeedback",
+        "createVertexArray"
+      );
+    }
     for (var ii = 0; ii < creationFunctions.length; ++ii) {
       var functionName = creationFunctions[ii];
       wrappedContext_[functionName] = function(f) {
@@ -757,6 +941,21 @@ function makeLostContextSimulatingCanvas(canvas) {
       "getUniformLocation",
       "getVertexAttrib"
     ];
+    if (isWebGL2RenderingContext) {
+      functionsThatShouldReturnNull.push(
+        "getInternalformatParameter",
+        "getQuery",
+        "getQueryParameter",
+        "getSamplerParameter",
+        "getSyncParameter",
+        "getTransformFeedbackVarying",
+        "getIndexedParameter",
+        "getUniformIndices",
+        "getActiveUniforms",
+        "getActiveUniformBlockParameter",
+        "getActiveUniformBlockName"
+      );
+    }
     for (var ii = 0; ii < functionsThatShouldReturnNull.length; ++ii) {
       var functionName = functionsThatShouldReturnNull[ii];
       wrappedContext_[functionName] = function(f) {
@@ -779,6 +978,15 @@ function makeLostContextSimulatingCanvas(canvas) {
       "isShader",
       "isTexture"
     ];
+    if (isWebGL2RenderingContext) {
+      isFunctions.push(
+        "isQuery",
+        "isSampler",
+        "isSync",
+        "isTransformFeedback",
+        "isVertexArray"
+      );
+    }
     for (var ii = 0; ii < isFunctions.length; ++ii) {
       var functionName = isFunctions[ii];
       wrappedContext_[functionName] = function(f) {
@@ -825,6 +1033,38 @@ function makeLostContextSimulatingCanvas(canvas) {
     wrappedContext_.isContextLost = function() {
       return contextLost_;
     };
+
+    if (isWebGL2RenderingContext) {
+      wrappedContext_.getFragDataLocation = function(f) {
+        return function() {
+          loseContextIfTime();
+          if (contextLost_) {
+            return -1;
+          }
+          return f.apply(ctx, arguments);
+        };
+      }(wrappedContext_.getFragDataLocation);
+
+      wrappedContext_.clientWaitSync = function(f) {
+        return function() {
+          loseContextIfTime();
+          if (contextLost_) {
+            return wrappedContext_.WAIT_FAILED;
+          }
+          return f.apply(ctx, arguments);
+        };
+      }(wrappedContext_.clientWaitSync);
+
+      wrappedContext_.getUniformBlockIndex = function(f) {
+        return function() {
+          loseContextIfTime();
+          if (contextLost_) {
+            return wrappedContext_.INVALID_INDEX;
+          }
+          return f.apply(ctx, arguments);
+        };
+      }(wrappedContext_.getUniformBlockIndex);
+    }
 
     return wrappedContext_;
   }
