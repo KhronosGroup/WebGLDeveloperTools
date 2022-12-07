@@ -384,6 +384,10 @@ function glFunctionArgToString(functionName, numArgs, argumentIndex, value) {
     return "null";
   } else if (value === undefined) {
     return "undefined";
+  } else if (ArrayBuffer.isView(value)) {
+    // Large typed array views are common in WebGL APIs and create
+    // huge strings in logs.
+    return "<" + value.constructor.name + ">";
   } else {
     return value.toString();
   }
