@@ -9,4 +9,4 @@ Releases:
 v1.0.0: Initial [semver tag](http://semver.org/), used for module versioning by module loader.
 
 For more information and other useful tools, consult the WebGL wiki:
-http://www.khronos.org/webgl/wiki/
+https://wikis.khronos.org/webgl
